@@ -27,7 +27,7 @@ app.post("/repositories", (request, response) => {
 
   repositories.push(repo)
 
-  return response.status(201).send()
+  return response.status(201).json(repo)
 });
 
 app.put("/repositories/:id", (request, response) => {
@@ -45,7 +45,7 @@ app.put("/repositories/:id", (request, response) => {
     title,
     url,
     techs,
-    likes: 0,
+    likes: repositories[repoIndex].likes
   }
 
   repositories[repoIndex] = repo
